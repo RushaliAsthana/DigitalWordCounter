@@ -1,14 +1,25 @@
 var wordlimit;
 function load()
 {
-    wordlimit=5;
+    wordlimit=document.getElementById("limit").value;
+    document.getElementById("commentarea").value="";
+    if(wordlimit!=0 && wordlimit<=1000)
+    {
+        document.getElementById("commentarea").disabled=false;
     document.getElementById("totwords").innerHTML="Word Limit:"+wordlimit;
     document.getElementById("writtenwords").innerHTML="Words Written:0";
     document.getElementById("wordsleft").innerHTML="Words Written:"+wordlimit;
+    }
+    else{
+        document.getElementById("commentarea").disabled=true;
+        document.getElementById("totwords").innerHTML="";
+        document.getElementById("writtenwords").innerHTML = "";
+        document.getElementById("wordsleft").innerHTML ="";
+    }
 }
 function countWords()
 {
-    
+    document.getElementById("limit").style.display="hidden";
     var x = document.getElementById("commentarea");
     var p=x.value.length;
     var words=x.value.trim().split(/\s+/).length;
