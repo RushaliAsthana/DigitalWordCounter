@@ -3,6 +3,7 @@ function load()
 {
     wordlimit=document.getElementById("limit").value;
     document.getElementById("commentarea").value="";
+    document.getElementById("enough").style.display="none";
     if(wordlimit!=0 && wordlimit<=1000)
     {
         document.getElementById("commentarea").disabled=false;
@@ -11,22 +12,25 @@ function load()
     document.getElementById("wordsleft").innerHTML="Words Written:"+wordlimit;
     }
     else{
-        document.getElementById("commentarea").disabled=true;
-        document.getElementById("totwords").innerHTML="";
-        document.getElementById("writtenwords").innerHTML = "";
-        document.getElementById("wordsleft").innerHTML ="";
+     document.getElementById("commentarea").disabled=true;
+     x.removeAttribute('maxLength');
+     document.getElementById("enough").innerHTML="";
+ document.getElementById("writtenwords").innerHTML = "";
+ document.getElementById("wordsleft").innerHTML ="";
     }
 }
 function countWords()
 {
-    document.getElementById("limit").style.display="hidden";
     var x = document.getElementById("commentarea");
     var p=x.value.length;
     var words=x.value.trim().split(/\s+/).length;
     console.log(x.value.length);
     if(x.value.length==0)
     {
-        load();
+        x.removeAttribute('maxLength');
+        document.getElementById("enough").innerHTML="";
+    document.getElementById("writtenwords").innerHTML = "";
+    document.getElementById("wordsleft").innerHTML ="";
     }
     else
     {
