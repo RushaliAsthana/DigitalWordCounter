@@ -11,7 +11,7 @@ function load()
     document.getElementById("writtenwords").innerHTML="Words Written:0";
     document.getElementById("wordsleft").innerHTML="Words Written:"+wordlimit;
     }
-    else if(wordlimit==0){
+    else{
      document.getElementById("commentarea").disabled=true;
      document.getElementById("writtenwords").innerHTML = "";
      document.getElementById("wordsleft").innerHTML ="";
